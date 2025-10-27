@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Projet - Hub Central</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #000000 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Particules flottantes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(2px 2px at 20px 30px, rgba(0, 212, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255, 0, 110, 0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 136, 0.3), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255, 0, 110, 0.2), transparent);
+            background-repeat: repeat;
+            background-size: 150px 150px;
+            animation: particleFloat 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-150px, -150px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-header {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #ff006e 50%, #00ff88 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 16px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .launch-btn {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        .launch-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.5);
+            background: linear-gradient(135deg, #00e5ff, #00acc1);
+        }
+
+        .launch-btn:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        #projectNotes {
+            width: 100%;
+            min-height: 400px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ffffff;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        #projectNotes:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .add-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        .add-item input {
+            flex: 1;
+            min-width: 200px;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-select {
+            flex: 0 0 200px;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-select:focus {
+            outline: none;
+            border-color: #ff006e;
+            box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.15);
+        }
+
+        .category-select option {
+            background: #1a1a2e;
+            color: white;
+            padding: 0.5rem;
+        }
+
+        .add-item input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .add-item input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .add-btn {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #00ff88, #00cc70);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.3);
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 255, 136, 0.5);
+            background: linear-gradient(135deg, #00ff99, #00d480);
+        }
+
+        .add-category-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: stretch;
+        }
+
+        .add-category-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .add-category-form input:focus {
+            outline: none;
+            border-color: #ff006e;
+            box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.15);
+        }
+
+        .add-category-form button {
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            border: none;
+            background: linear-gradient(135deg, #ff006e, #cc0055);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(255, 0, 110, 0.3);
+        }
+
+        .add-category-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 0, 110, 0.5);
+        }
+
+        .category-container {
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #00d4ff;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px dashed transparent;
+        }
+
+        .category-title:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            margin: 0.8rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .checklist-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(45deg, #00d4ff, #ff006e);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(8px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .checklist-item:hover::before {
+            opacity: 1;
+        }
+
+        .checklist-item.completed {
+            opacity: 0.6;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .checklist-item.completed .task-text {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .check-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .check-btn:hover {
+            border-color: #00ff88;
+            transform: scale(1.1);
+        }
+
+        .check-btn.completed {
+            background: linear-gradient(135deg, #00ff88, #00cc70);
+            border-color: #00ff88;
+            box-shadow: 0 4px 16px rgba(0, 255, 136, 0.4);
+        }
+
+        .check-btn.completed::before {
+            content: '✓';
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px dashed transparent;
+            margin-right: 1rem;
+        }
+
+        .task-text:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .task-controls {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .status-select, .move-select {
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .status-select:focus, .move-select:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+        }
+
+        .status-select option, .move-select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        /* Animations d'entrée */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .project-title {
+                font-size: 2.2rem;
+            }
+
+            .project-header {
+                padding: 2rem;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .add-item, .add-category-form {
+                flex-direction: column;
+            }
+
+            .task-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+
+            .checklist-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .check-btn {
+                margin-right: 0;
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00d4ff, #ff006e);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #00e5ff, #ff1a7a);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="project-header fade-in">
+            <h1 class="project-title" id="projectTitle">Mon Projet</h1>
+            <div class="project-actions">
+                <button class="action-btn launch-btn">
+                    🚀 Lancer le Projet
+                </button>
+            </div>
+        </div>
+
+        <div class="section-card fade-in">
+            <h2 class="section-title">📝 Notes du Projet</h2>
+            <textarea id="projectNotes" placeholder="Ajoutez vos notes ici..."></textarea>
+        </div>
+
+        <div class="section-card fade-in">
+            <h2 class="section-title">✅ Checklist</h2>
+            
+            <div class="add-item">
+                <input type="text" id="newItemInput" placeholder="Nouvelle tâche..." />
+                <select id="categorySelect" class="category-select">
+                    <option value="">Choisir une catégorie...</option>
+                </select>
+                <input type="text" id="newCategoryInput" placeholder="Ou créer nouvelle catégorie..." style="display: none;" />
+                <button class="add-btn" onclick="addChecklistItem()">Ajouter</button>
+            </div>
+            
+            <form class="add-category-form" id="add-category-form">
+                <input type="text" id="new-category-name" placeholder="Nouvelle catégorie" required />
+                <button type="submit">Créer Catégorie</button>
+            </form>
+
+            <div class="checklist-container" id="checklistContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        const statuses = ['not started', 'started', 'done'];
+        
+
+        const urlParams = new URLSearchParams(window.location.search);
+const projectId = urlParams.get('id') || '1'; // fallback si pas d’id
+
+let currentProject = loadProject(projectId) || {
+    id: projectId,
+    title: 'Nouveau Projet',
+    notes: '',
+    checklist: {}
+};
+
+
+        function getProjectData() {
+            return currentProject;
+        }
+
+        function saveProject(project) {
+    localStorage.setItem(`project_${project.id}`, JSON.stringify(project));
+}
+
+function loadProject(id) {
+    const saved = localStorage.getItem(`project_${id}`);
+    if (saved) {
+        return JSON.parse(saved);
+    }
+    return null;
+}
+
+
+
+        function renderChecklist(checklist) {
+            const container = document.getElementById('checklistContainer');
+            container.innerHTML = '';
+            
+            // Update category select
+            updateCategorySelect(Object.keys(checklist));
+            
+            Object.entries(checklist).forEach(([category, items]) => {
+                const catDiv = document.createElement('div');
+                catDiv.className = 'category-container fade-in';
+
+                const title = document.createElement('h3');
+                title.className = 'category-title';
+                title.textContent = category;
+                title.contentEditable = true;
+                title.addEventListener('blur', () => renameCategory(category, title.textContent));
+
+                catDiv.appendChild(title);
+
+                items.forEach((item, idx) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = `checklist-item ${item.done ? 'completed' : ''}`;
+
+                    const btn = document.createElement('div');
+                    btn.className = `check-btn ${item.done ? 'completed' : ''}`;
+                    btn.onclick = () => toggleItemDone(category, idx);
+
+                    const span = document.createElement('span');
+                    span.className = 'task-text';
+                    span.textContent = item.text;
+                    span.contentEditable = true;
+                    span.addEventListener('blur', () => renameTask(category, idx, span.textContent));
+
+                    const controlsDiv = document.createElement('div');
+                    controlsDiv.className = 'task-controls';
+
+                    const status = document.createElement('select');
+                    status.className = 'status-select';
+                    statuses.forEach(s => {
+                        const option = document.createElement('option');
+                        option.value = s;
+                        option.textContent = s.replace(/^\w/, c => c.toUpperCase());
+                        if (item.status === s) option.selected = true;
+                        status.appendChild(option);
+                    });
+                    status.onchange = (e) => updateStatus(category, idx, e.target.value);
+
+                    const moveTo = document.createElement('select');
+                    moveTo.className = 'move-select';
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = 'Déplacer vers...';
+                    moveTo.appendChild(defaultOption);
+                    
+                    Object.keys(checklist).forEach(cat => {
+                        if (cat !== category) {
+                            const opt = document.createElement('option');
+                            opt.value = cat;
+                            opt.textContent = cat;
+                            moveTo.appendChild(opt);
+                        }
+                    });
+                    moveTo.onchange = (e) => {
+                        if (e.target.value) {
+                            moveTask(category, idx, e.target.value);
+                        }
+                    };
+
+                    controlsDiv.appendChild(status);
+                    controlsDiv.appendChild(moveTo);
+
+                    itemDiv.appendChild(btn);
+                    itemDiv.appendChild(span);
+                    itemDiv.appendChild(controlsDiv);
+                    catDiv.appendChild(itemDiv);
+                });
+
+                container.appendChild(catDiv);
+            });
+        }
+
+        function updateCategorySelect(categories) {
+            const select = document.getElementById('categorySelect');
+            select.innerHTML = '';
+            
+            // Option par défaut
+            const defaultOption = document.createElement('option');
+            defaultOption.value = '';
+            defaultOption.textContent = 'Choisir une catégorie...';
+            select.appendChild(defaultOption);
+            
+            // Ajouter les catégories existantes
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                select.appendChild(option);
+            });
+            
+            // Option pour créer une nouvelle catégorie
+            const newCatOption = document.createElement('option');
+            newCatOption.value = '__new__';
+            newCatOption.textContent = '+ Créer nouvelle catégorie';
+            select.appendChild(newCatOption);
+        }
+
+        function renameCategory(oldName, newName) {
+            if (oldName === newName || !newName.trim()) return;
+            
+            const project = getProjectData();
+            if (!project.checklist[newName]) {
+                project.checklist[newName] = project.checklist[oldName];
+                delete project.checklist[oldName];
+                saveProject(project);
+                renderChecklist(project.checklist);
+            }
+        }
+
+        function renameTask(category, index, newText) {
+            if (!newText.trim()) return;
+            
+            const project = getProjectData();
+            project.checklist[category][index].text = newText;
+            saveProject(project);
+        }
+
+        function toggleItemDone(category, index) {
+            const project = getProjectData();
+            const item = project.checklist[category][index];
+            item.done = !item.done;
+            item.status = item.done ? 'done' : 'not started';
+            saveProject(project);
+            renderChecklist(project.checklist);
+        }
+
+        function updateStatus(category, index, status) {
+            const project = getProjectData();
+            project.checklist[category][index].status = status;
+            project.checklist[category][index].done = (status === 'done');
+            saveProject(project);
+            renderChecklist(project.checklist);
+        }
+
+        function moveTask(fromCategory, index, toCategory) {
+            if (fromCategory === toCategory) return;
+            
+            const project = getProjectData();
+            const item = project.checklist[fromCategory][index];
+            
+            if (!project.checklist[toCategory]) {
+                project.checklist[toCategory] = [];
+            }
+            
+            project.checklist[toCategory].push(item);
+            project.checklist[fromCategory].splice(index, 1);
+            
+            saveProject(project);
+            renderChecklist(project.checklist);
+        }
+
+        function addChecklistItem() {
+            const taskInput = document.getElementById('newItemInput');
+            const categorySelect = document.getElementById('categorySelect');
+            const newCategoryInput = document.getElementById('newCategoryInput');
+            
+            const text = taskInput.value.trim();
+            let category = categorySelect.value;
+
+            if (!text) {
+                taskInput.focus();
+                return;
+            }
+
+            // Si "créer nouvelle catégorie" est sélectionné
+            if (category === '__new__') {
+                category = newCategoryInput.value.trim();
+                if (!category) {
+                    newCategoryInput.focus();
+                    return;
+                }
+            }
+            
+            // Si aucune catégorie n'est sélectionnée, utiliser "Général"
+            if (!category) {
+                category = 'Général';
+            }
+
+            const project = getProjectData();
+            if (!project.checklist) project.checklist = {};
+            if (!project.checklist[category]) project.checklist[category] = [];
+
+            project.checklist[category].push({ 
+                text, 
+                done: false, 
+                status: 'not started' 
+            });
+            
+            saveProject(project);
+            renderChecklist(project.checklist);
+            
+            // Reset form
+            taskInput.value = '';
+            categorySelect.value = '';
+            newCategoryInput.value = '';
+            newCategoryInput.style.display = 'none';
+            taskInput.focus();
+        }
+
+        // Event listeners
+        document.getElementById('add-category-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const categoryInput = document.getElementById('new-category-name');
+            const category = categoryInput.value.trim();
+            
+            if (!category) return;
+
+            const project = getProjectData();
+            if (!project.checklist) project.checklist = {};
+
+            if (!project.checklist[category]) {
+                project.checklist[category] = [];
+                saveProject(project);
+                renderChecklist(project.checklist);
+            }
+
+            categoryInput.value = '';
+        });
+
+        const titleEl = document.getElementById('projectTitle');
+titleEl.contentEditable = true;
+titleEl.addEventListener('blur', () => {
+    const project = getProjectData();
+    project.title = titleEl.textContent;
+    saveProject(project);
+});
+
+
+        document.getElementById('newItemInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addChecklistItem();
+            }
+        });
+
+        // Gestion du sélecteur de catégorie
+        document.getElementById('categorySelect').addEventListener('change', (e) => {
+            const newCategoryInput = document.getElementById('newCategoryInput');
+            if (e.target.value === '__new__') {
+                newCategoryInput.style.display = 'block';
+                newCategoryInput.focus();
+            } else {
+                newCategoryInput.style.display = 'none';
+                newCategoryInput.value = '';
+            }
+        });
+
+        document.getElementById('newCategoryInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addChecklistItem();
+            }
+        });
+
+        document.getElementById('projectNotes').addEventListener('input', (e) => {
+    const project = getProjectData();
+    project.notes = e.target.value;
+    saveProject(project);
+});
+
+document.getElementById('projectTitle').textContent = currentProject.title;
+document.getElementById('projectNotes').value = currentProject.notes || '';
+renderChecklist(currentProject.checklist);
+
+
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const project = getProjectData();
+            document.getElementById('projectTitle').textContent = project.title;
+            document.getElementById('projectNotes').value = project.notes || '';
+            renderChecklist(project.checklist || {});
+            
+            // Add staggered animation to initial elements
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    el.style.animationDelay = `${index * 0.1}s`;
+                });
+            }, 100);
+        });
+
+        document.querySelector(".launch-btn").addEventListener("click", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get("id");
+
+        if (!projectId) {
+            alert("Aucun ID de projet trouvé !");
+            return;
+        }
+
+        // Associe chaque id à la page réelle à ouvrir
+        const projectMap = {
+            "1": "https://sharwiki.com",             // Projet ID 1 → site externe
+            "2": "speedrun-wiki/index.html",        // Projet ID 2 → page locale
+            "3": "mkquizz/index.html",  
+            "4": "Luigi/index.html",      // Exemple : Projet ID 3 → autre fichier
+            // ajoute d'autres projets ici...
+        };
+
+        const targetUrl = projectMap[projectId];
+
+        if (targetUrl) {
+            window.open(targetUrl, "_blank"); // Ouvre dans un nouvel onglet
+        } else {
+            alert("Aucun projet correspondant à cet ID.");
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Lucas Vernageau</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="stylesheet" href="style/background.css" />
+  <script defer src="js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+  <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
+    <span class="theme-icon">🌙</span>
+  </button>
+  <button id="language-toggle" class="language-toggle" aria-label="Changer la langue">
+    EN
+  </button>
+
+    <nav class="nav">
+      <h1 class="logo">Lucas<span> Vernageau</span></h1>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav_about"></a></li>
+        <li><a href="#skills" data-i18n="nav_skills"></a></li>
+        <li><a href="#projects" data-i18n="nav_projects"></a></li>
+        <li><a href="#contact" data-i18n="nav_contact"></a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h2 data-i18n="hero_title"></h2>
+      <p data-i18n="hero_text"></p>
+      <a href="#projects" class="btn" data-i18n="hero_btn"></a>
+    </section>
+  </header>
+
+  
+     <div class="sky">
+       <div class="moon"></div>
+       <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+    </div>
+
+  <!-- ===== À PROPOS ===== -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="about-text">
+        <h2 data-i18n="about_title"></h2>
+        <p data-i18n="about_text">
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPÉTENCES ===== -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="skills-header">
+      <h2 data-i18n="skills_title"></h2>
+      <p class="skills-subtitle" data-i18n="skills_subtitle"></p>
+    </div>
+
+    <div class="skills-grid">
+      
+      <!-- Langages Principaux -->
+      <div class="skill-category">
+        <h3 class="category-title" data-i18n="langages_main"></h3>
+        
+        <div class="skill-item">
+            <i class="devicon-html5-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">HTML5</div>
+            <div class="skill-level" data-i18n="advanced"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-css3-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">CSS3</div>
+            <div class="skill-level" data-i18n="advanced"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-javascript-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level" data-i18n="intermediate"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Langages Secondaires -->
+      <div class="skill-category">
+        <h3 class="category-title" data-i18n="langages_secondary"></h3>
+        
+        <div class="skill-item">
+            <i class="devicon-python-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">Python</div>
+            <div class="skill-level" data-i18n="intermediate"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-azuresqldatabase-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">SQL</div>
+            <div class="skill-level" data-i18n="beginner"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-go-original-wordmark colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">Go</div>
+            <div class="skill-level" data-i18n="beginner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outils & Technologies -->
+      <div class="skill-category">
+        <h3 class="category-title" data-i18n="tools"></h3>
+        
+        <div class="skill-item">
+          <i class="devicon-git-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">Git</div>
+            <div class="skill-level" data-i18n="intermediate"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-vscode-plain colored skill-icon"></i>
+          <div class="skill-info">
+            <div class="skill-name">VS Code</div>
+            <div class="skill-level" data-i18n="intermediate"></div>
+          </div>
+        </div>
+
+        <div class="skill-item">
+            <i class="devicon-github-original colored skill-icon"></i>         
+          <div class="skill-info">
+            <div class="skill-name">Github</div>
+            <div class="skill-level" data-i18n="intermediate"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- ===== PROJETS ===== -->
+  <section id="projects" class="projects section">
+  <div class="container">
+    <h2 data-i18n="myprojects"></h2>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <div class="project-card" data-category="online" data-id="1">
+        <div class="project-icon"><img id="sharwiki-icon" src="img/projets/sharwiki-icon.png"></div>
+        <h3 class="project-title">SHAR Wiki</h3>
+        <p class="project-description" data-i18n="sharwiki_description"></p>
+        <div class="project-meta">
+          <span class="project-type">HTML/CSS/JS</span>
+        </div>
+        <div class="project-links">
+          <a href="sharwiki.com" target="_blank" data-i18n="open"></a>
+          <a href="https://github.com/Homerofsteel/SharWiki" target="_blank">Code</a>
+          <!-- <a href="projets/sharwiki.html" class="btn-small" data-i18n="details"></a> -->
+        </div>
+      </div>
+
+      <div class="project-card" data-category="online" data-id="1">
+        <div class="project-icon">👀</div>
+        <h3 class="project-title">Eye-Tracker</h3>
+        <p class="project-description" data-i18n="eyetracker_description"></p>
+        <div class="project-meta">
+          <span class="project-type">HTML/CSS/JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://homerofsteel.github.io/Eye-Tracker/" target="_blank">Demo</a>
+          <a href="https://github.com/Homerofsteel/Eye-Tracker" target="_blank">Code</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="projects-grid" id="projectsGrid" style="margin-top: 40px;">
+
+      <div class="project-card" data-category="online" data-id="1">
+        <div class="project-icon">🗣️</div>
+        <h3 class="project-title">Forum</h3>
+        <p class="project-description" data-i18n="forum_description"></p>
+        <div class="project-meta">
+          <span class="project-type">HTML/CSS/JS/SQL</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Homerofsteel/FORUM" target="_blank">Code</a>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="offline" data-id="2">
+        <div class="project-icon"><img id="sharwiki-icon" src="img/projets/pacman.png"></div>
+        <h3 class="project-title">Pac-Snack</h3>
+        <p class="project-description" data-i18n="pacman_description">Version très modifiée de Pac-Man</p>
+        <div class="project-meta">
+          <span class="project-type">HTML/CSS/JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Homerofsteel/pac-snack" target="_blank">Code</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="https://github.com/Homerofsteel?tab=repositories" class="btn" data-i18n="moreprojects"></a>
+</section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p data-i18n="contactdetails"></p>
+      <div class="contact-links">
+        <a href="lucas.v85@outlook.com">lucas.v85@outlook.com</a>
+        <a href="https://github.com/homerofsteel" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/lucas-vernageau-699a6a356/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p data-i18n="copyright"></p>
+  </footer>
+
+  
+<script src="js/language.js"></script>
+  <script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Vérifie le thème enregistré dans localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDark = body.classList.contains('dark-mode');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+</script>
+
+</body>
+</html>

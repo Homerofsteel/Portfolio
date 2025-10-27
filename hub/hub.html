@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Central - Mes Projets</title>
+    <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="floating-elements">
+        <div class="floating-circle" style="width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-circle" style="width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 2s;"></div>
+        <div class="floating-circle" style="width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 4s;"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="title">MES PROJETS</h1>
+            <p class="subtitle">Hub central de tous mes créations</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="🔍 Rechercher un projet..." id="searchInput">
+        </div>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Tous</button>
+            <button class="category-btn" data-category="online">En ligne</button>
+            <button class="category-btn" data-category="local">Local</button>
+            <button class="category-btn" data-category="development">En développement</button>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="totalProjects">0</div>
+                <div class="stat-label">Projets totaux</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="onlineProjects">0</div>
+                <div class="stat-label">En ligne</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="localProjects">0</div>
+                <div class="stat-label">Locaux</div>
+            </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <div class="project-card" data-category="online" data-id="1">
+                <div class="project-icon">🌐</div>
+                <h3 class="project-title">SHAR Wiki</h3>
+                <p class="project-description">Mon site portfolio personnel avec toutes mes réalisations et compétences.</p>
+                <div class="project-meta">
+                    <span class="project-type">HTML/CSS/JS</span>
+                    <span class="project-status status-online">● En ligne</span>
+                </div>
+            </div>
+            <div class="project-card" data-category="local" data-id="2">
+                <div class="project-icon">💻</div>
+                <h3 class="project-title">Speedrun Wiki</h3>
+                <p class="project-description">Une application de gestion de tâches avec interface moderne et fonctionnalités avancées.</p>
+                <div class="project-meta">
+                    <span class="project-type">Vanilla JS</span>
+                    <span class="project-status status-local">● Local</span>
+                </div>
+            </div>
+            <div class="project-card" data-category="local" data-id="3">
+                <div class="project-icon">💻</div>
+                <h3 class="project-title">Mario Kart Quiz</h3>
+                <p class="project-description">Une application de gestion de tâches avec interface moderne et fonctionnalités avancées.</p>
+                <div class="project-meta">
+                    <span class="project-type">Vanilla JS</span>
+                    <span class="project-status status-local">● Local</span>
+                </div>
+            </div>
+            <div class="project-card" data-category="online" data-id="4">
+                <div class="project-icon">🌐</div>
+                <h3 class="project-title">Luigi Escape Minigame</h3>
+                <p class="project-description">Mon site portfolio personnel avec toutes mes réalisations et compétences.</p>
+                <div class="project-meta">
+                    <span class="project-type">HTML/CSS/JS</span>
+                    <span class="project-status status-online">● En ligne</span>
+                </div>
+            </div>
+            <div class="project-card" data-category="online" data-id="5">
+                <div class="project-icon">🌐</div>
+                <h3 class="project-title">Mario Odyssey Damageless Ressources</h3>
+                <p class="project-description">Mon site portfolio personnel avec toutes mes réalisations et compétences.</p>
+                <div class="project-meta">
+                    <span class="project-type">HTML/CSS/JS</span>
+                    <span class="project-status status-online">● En ligne</span>
+                </div>
+            </div>
+            <div class="project-card" data-category="online" data-id="6">
+                <div class="project-icon">🌐</div>
+                <h3 class="project-title">SHAR Machinima</h3>
+                <p class="project-description">Mon site portfolio personnel avec toutes mes réalisations et compétences.</p>
+                <div class="project-meta">
+                    <span class="project-type">HTML/CSS/JS</span>
+                    <span class="project-status status-online">● En ligne</span>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="exportAllBtn">Exporter</button>
+        <button id="importBtn">Importer</button>
+        
+    <input type="file" id="fileInput" style="display:none" accept=".json" />
+      </div>
+      
+    
+    <script src="hub.js"></script>
+</body>
+</html>
