@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -30,6 +29,8 @@ body {
   --accent-color: black;
   transition: background 0.4s, color 0.4s;
   --project-icon-bg: linear-gradient(135deg, #6dd5fa, #2980b9);
+  justify-content: center;
+  align-items: center;
 }
 
 /* ===== LAYOUT ===== */
@@ -46,7 +47,7 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -56,7 +57,6 @@ h2 {
 }
 
 /* ===== NAVIGATION ===== */
-/* ===== NAVIGATION AMÉLIORÉE ===== */
 .header {
   background: var(--header-gradient);
   color: #fff;
@@ -71,7 +71,6 @@ h2 {
   transition: background 0.4s ease;
 }
 
-/* Effet de vague/overlay pour plus de profondeur */
 .header::before {
   content: '';
   position: absolute;
@@ -158,6 +157,9 @@ body.dark-mode .header::before {
   padding: 0 20px;
   position: relative;
   z-index: 1;
+  display: flex;           /* Ajoutez ceci */
+  flex-direction: column;  /* Ajoutez ceci */
+  align-items: center; 
 }
 
 .hero h2 {
@@ -204,7 +206,6 @@ body.dark-mode .hero h2 span {
 }
 
 .btn {
-  display: inline-block;
   margin-top: 20px;
   padding: 15px 40px;
   background: rgba(34, 34, 34, 0.9);
@@ -232,6 +233,72 @@ body.dark-mode .btn:hover {
   background: #8338ec;
   box-shadow: 0 6px 30px rgba(131, 56, 236, 0.5);
 }
+
+.arrow-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none; 
+            margin-top: 100px;
+        }
+
+        .arrow-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-button:active {
+            transform: scale(0.95);
+        }
+
+        .arrow {
+            position: relative;
+            width: 4px;
+            height: 25px;
+            background: #4a5568;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        .arrow::before,
+        .arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -2.2px;
+            width: 14px;
+            height: 3px;
+            background: #4a5568;
+        }
+
+        .arrow::before {
+            right: 1.1px;
+            transform: rotate(45deg);
+            transform-origin: right center;
+        }
+
+        .arrow::after {
+            left: 1.1px;
+            transform: rotate(-45deg);
+            transform-origin: left center;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-5px);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+        }
+
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -330,10 +397,17 @@ body.dark-mode .btn:hover {
 
 /* ===== ABOUT ===== */
 .about {
-  display: flex;
+  text-align: center;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 40px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .about-photo {
@@ -346,15 +420,6 @@ body.dark-mode .btn:hover {
   flex: 1;
 }
 
-.skills span {
-  display: inline-block;
-  background: #ff9800;
-  color: #fff;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 5px;
-}
-
 /* ===== PROJECTS ===== */
 
 #projects{
@@ -363,6 +428,12 @@ body.dark-mode .btn:hover {
   position: relative;
   z-index: 1;
   text-align: center;
+}
+
+#projects h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .projects-grid {
@@ -401,24 +472,24 @@ body.dark-mode .btn:hover {
 }
 
 .project-icon {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 12px;
   background: var(--project-icon-bg);
   display: flex;
-  justify-content: center;
-  font-size: 2rem;
+  justify-content: center;    
+  align-items: center;
+  text-align: center;
+  font-size: 3.5rem;
   padding: 2px;
 }
 
-.sharwiki-icon {
-  width: 90%;
-  height: 90%;
-  display: block;
+#image-icon {
+  width: 80px;
 }
 
 .project-title {
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
@@ -457,6 +528,22 @@ body.dark-mode .btn:hover {
 }
 
 /* ===== CONTACT ===== */
+
+.contact {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
 .contact-links a {
   display: inline-block;
   margin: 10px;
@@ -516,6 +603,15 @@ body.dark-mode .footer {
   border-radius: 2px;
 }
 
+.skills span {
+  display: inline-block;
+  background: #ff9800;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
 .skills-subtitle {
   color: var(--text-color);
   opacity: 0.7;
@@ -526,7 +622,7 @@ body.dark-mode .footer {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }

@@ -5,14 +5,14 @@ const translations = {
     nav_projects: "Projets",
     nav_contact: "Contact",
     hero_title: "Bonjour, moi c’est <span>Lucas Vernageau</span>",
-    hero_text: "Étudiant en développement Web Full Stack.",
+    hero_text: "Étudiant en développement Web Full Stack.<br> Étudiant chez Ynov - Nantes",
     hero_btn: "Voir mes projets",
     about_title: "À propos de moi",
-    about_text: `Étudiant passionné par le développement web, j’aime créer des sites simples, modernes et efficaces.
+    about_text: `Étudiant passionné par le développement web, j’aime créer des sites simples et efficaces qui répondent à une problèmatique concrète.
            Je me forme actuellement au HTML, CSS et JavaScript, avec l’objectif de devenir développeur full stack.
-           Je suis aussi passioné par les jeux vidéos, la musique et acquérir de nouvelles connaissances en permanence.`,
+           Je suis aussi passioné par les jeux vidéos, la musique et j'aime acquérir de nouvelles connaissances en permanence.`,
     skills_title: "Mes <span>Compétences</span>",
-    skills_subtitle: "Technologies et outils avec lesquels je travaille pour construire des solutions robustes et efficaces",
+    skills_subtitle: "Technologies et outils avec lesquels je travaille pour construire des solutions simples et efficaces",
     langages_main: "Langages Principaux",
     advanced: "Avancé",
     intermediate: "Intermédiaire",
@@ -37,14 +37,14 @@ const translations = {
     nav_projects: "Projects",
     nav_contact: "Contact",
     hero_title: "Hello, I’m <span>Lucas Vernageau</span>",
-    hero_text: "Web development student.",
+    hero_text: "Web development student.<br> Student at Ynov - Nantes",
     hero_btn: "View my projects",
     about_title: "About Me",
-    about_text: `A student passionate about web development, I love creating simple, modern, and efficient websites.
+    about_text: `A student passionate about web development, I love creating simple and efficient websites.
            I am currently learning HTML, CSS, and JavaScript, with the goal of becoming a full-stack developer.
-           I am also passionate about video games, music, and constantly acquiring new knowledge.`,
+           I am also passionate about video games, music, and love constantly acquiring new knowledge.`,
     skills_title: "My <span>Skills</span>",
-    skills_subtitle: "Technologies and tools I work with to build robust and efficient solutions",
+    skills_subtitle: "Technologies and tools I work with to build simple and efficient solutions",
     langages_main: "Main Languages",
     advanced: "Advanced",
     intermediate: "Intermediate",

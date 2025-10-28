@@ -109,14 +109,11 @@ body.dark-mode .cloud::after {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Cachée la nuit */
 body.dark-mode .sun {
   opacity: 0;
   transform: scale(0.7) translateY(-30px);
 }
 
-
-/* Ajout d'étoiles scintillantes */
 body.dark-mode .sky::before {
   content: '';
   position: absolute;
@@ -129,7 +126,6 @@ body.dark-mode .sky::before {
   z-index: -1;
 }
 
-/* Animation des étoiles */
 @keyframes twinkle {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0.8; }
@@ -148,7 +144,6 @@ body.dark-mode .sky::before {
   transition: opacity 1s ease;
 }
 
-/* Visible uniquement la nuit */
 body.dark-mode .moon {
   opacity: 1;
 }
