@@ -5,14 +5,16 @@ const translations = {
     nav_projects: "Projets",
     nav_contact: "Contact",
     hero_title: "Bonjour, moi c’est <span>Lucas Vernageau</span>",
-    hero_text: "Étudiant en développement Web Full Stack.<br> Étudiant chez Ynov - Nantes",
+    hero_text:
+      "Étudiant en développement Web Full Stack.<br> Étudiant chez Ynov - Nantes",
     hero_btn: "Voir mes projets",
     about_title: "À propos de moi",
     about_text: `Étudiant passionné par le développement web, j’aime créer des sites simples et efficaces qui répondent à une problèmatique concrète.
            Je me forme actuellement au HTML, CSS et JavaScript, avec l’objectif de devenir développeur full stack.
            Je suis aussi passioné par les jeux vidéos, la musique et j'aime acquérir de nouvelles connaissances en permanence.`,
     skills_title: "Mes <span>Compétences</span>",
-    skills_subtitle: "Technologies et outils avec lesquels je travaille pour construire des solutions simples et efficaces",
+    skills_subtitle:
+      "Technologies et outils avec lesquels je travaille pour construire des solutions simples et efficaces",
     langages_main: "Langages Principaux",
     advanced: "Avancé",
     intermediate: "Intermédiaire",
@@ -44,7 +46,8 @@ const translations = {
            I am currently learning HTML, CSS, and JavaScript, with the goal of becoming a full-stack developer.
            I am also passionate about video games, music, and love constantly acquiring new knowledge.`,
     skills_title: "My <span>Skills</span>",
-    skills_subtitle: "Technologies and tools I work with to build simple and efficient solutions",
+    skills_subtitle:
+      "Technologies and tools I work with to build simple and efficient solutions",
     langages_main: "Main Languages",
     advanced: "Advanced",
     intermediate: "Intermediate",
@@ -62,24 +65,20 @@ const translations = {
     moreprojects: "More projects",
     open: "Open",
     copyright: "© 2025 Lucas Vernageau",
-    
   },
 };
 
-const languageBtn = document.getElementById('language-toggle');
+const languageBtn = document.getElementById("language-toggle");
 
-// Initialise le bouton avec la langue actuelle
 let currentLang = localStorage.getItem("lang") || "fr";
 languageBtn.textContent = currentLang.toUpperCase();
 applyTranslations(currentLang);
 
-// Clique sur le bouton : bascule entre FR/EN
-languageBtn.addEventListener('click', () => {
-  const newLang = currentLang === 'fr' ? 'en' : 'fr';
+languageBtn.addEventListener("click", () => {
+  const newLang = currentLang === "fr" ? "en" : "fr";
   setLanguage(newLang);
   languageBtn.textContent = newLang.toUpperCase();
 });
-
 
 function setLanguage(lang) {
   currentLang = lang;
