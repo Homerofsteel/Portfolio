@@ -14,6 +14,7 @@ const translations = {
 Actuellement en formation à Ynov Nantes, je développe mes compétences en HTML, CSS, JavaScript et en outils front et back-end dans le but de devenir développeur full stack.
 
 Curieux et motivé, je m’intéresse également à la création de jeux vidéo, à la musique et à tout ce qui me permet d’explorer de nouvelles technologies et d’apprendre en continu.`,
+    cv: "📥 Télécharger mon cv",
     skills_title: "Mes <span>Compétences</span>",
     skills_subtitle:
       "Technologies et outils avec lesquels je travaille pour construire des solutions simples et efficaces",
@@ -49,6 +50,7 @@ Curieux et motivé, je m’intéresse également à la création de jeux vidéo,
 Currently studying at Ynov Nantes, I’m developing my skills in HTML, CSS, JavaScript, and both front-end and back-end technologies, with the goal of becoming a full-stack developer.
 
 Curious and motivated, I’m also passionate about video games, music, and exploring new technologies to keep learning and growing every day.`,
+    cv: "📥 Download my resume",
     skills_title: "My <span>Skills</span>",
     skills_subtitle:
       "Technologies and tools I work with to build simple and efficient solutions",

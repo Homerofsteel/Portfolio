@@ -751,3 +751,20 @@ body.dark-mode .skill-item {
     grid-template-columns: 1fr;
   }
 }
+
+.cv_btn {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-size: 20px;
+}
+
+.cv_btn:hover {
+  background-color: #0056b3;
+}
+
